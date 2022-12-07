@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// User Info
 const UserSchema = new mongoose.Schema(
   {
     name: String,
@@ -10,5 +11,15 @@ const UserSchema = new mongoose.Schema(
     collection: "UserInfo",
   }
 );
-
 mongoose.model("UserInfo", UserSchema);
+
+// Dashboard Info
+const DashboardSchema = new mongoose.Schema(
+  {
+    name: String,
+  },
+  {
+    collection: "DashboardInfo",
+  }
+);
+mongoose.model("DashboardInfo", DashboardSchema);

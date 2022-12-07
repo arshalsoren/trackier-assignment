@@ -6,18 +6,20 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Login from "./Auth/login";
 import SignUp from "./Auth/signup";
 import UserDetails from "./Auth/userDetails";
+import Dashboard from "./Dashboard/dashboard";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <div className="auth-wrapper">
-          <div className="auth-inner">
+          <div className="auth-inner" id="inner">
             <Routes>
               <Route exact path="/" element={<Login />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<SignUp />} />
               <Route path="/userDetails" element={<UserDetails />} />
+              <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
           </div>
         </div>

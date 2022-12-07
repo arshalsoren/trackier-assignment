@@ -53,6 +53,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
+// Login
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -70,6 +71,31 @@ app.post("/login", async (req, res) => {
     }
   }
   res.json({ status: "error", error: "Invalid Password" });
+});
+
+// Project Dashboard
+const Dashboard = mongoose.model("DashboardInfo");
+app.post("/create-dashboard", async (req, res) => {
+  //   console.log("dashboard page");
+  const { name } = req.body;
+  try {
+    await Dashboard.create({
+      name,
+    });
+    res.send({ status: "ok" });
+  } catch (error) {
+    res.send({ status: "error" });
+  }
+});
+
+app.get("/get-dashboard", (req, res) => {
+  Dashboard.find()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((e) => {
+      res.send({ status: "error" });
+    });
 });
 
 app.post("/userData", async (req, res) => {
