@@ -13,7 +13,7 @@ export default class Login extends Component {
     e.preventDefault();
     const { email, password } = this.state;
     console.log(email, password);
-    fetch("http://localhost:8080/login-user", {
+    fetch("http://localhost:8080/login", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -39,14 +39,14 @@ export default class Login extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <h3>Sign In</h3>
+        <h3>Login</h3>
 
         <div className="mb-3">
-          <label>Email address</label>
+          <label>Email</label>
           <input
             type="email"
             className="form-control"
-            placeholder="Enter email"
+            placeholder="your@email.com"
             onChange={(e) => this.setState({ email: e.target.value })}
           />
         </div>
@@ -56,7 +56,7 @@ export default class Login extends Component {
           <input
             type="password"
             className="form-control"
-            placeholder="Enter password"
+            placeholder="********"
             onChange={(e) => this.setState({ password: e.target.value })}
           />
         </div>
@@ -76,11 +76,11 @@ export default class Login extends Component {
 
         <div className="d-grid">
           <button type="submit" className="btn btn-primary">
-            Submit
+            Login
           </button>
         </div>
         <p className="forgot-password text-right">
-          Don't have an account? <a href="/sign-up">Sign Up</a>
+          Don't have an account? <a href="/register">Register</a>
         </p>
       </form>
     );

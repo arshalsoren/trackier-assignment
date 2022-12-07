@@ -39,21 +39,21 @@ export default class SignUp extends Component {
         <h3>Sign Up</h3>
 
         <div className="mb-3">
-          <label>User Name</label>
+          <label>Username</label>
           <input
             type="text"
             className="form-control"
-            placeholder="User Name"
+            placeholder="Username"
             onChange={(e) => this.setState({ name: e.target.value })}
           />
         </div>
 
         <div className="mb-3">
-          <label>Email address</label>
+          <label>Email</label>
           <input
             type="email"
             className="form-control"
-            placeholder="Enter email"
+            placeholder="your@email.com"
             onChange={(e) => this.setState({ email: e.target.value })}
           />
         </div>
@@ -63,18 +63,18 @@ export default class SignUp extends Component {
           <input
             type="password"
             className="form-control"
-            placeholder="Enter password"
+            placeholder="********"
             onChange={(e) => this.setState({ password: e.target.value })}
           />
         </div>
 
         <div className="d-grid">
           <button type="submit" className="btn btn-primary">
-            Sign Up
+            Register
           </button>
         </div>
         <p className="forgot-password text-right">
-          Already have an account? <a href="/sign-in">Log in</a>
+          Already have an account? <a href="/login">Log in</a>
         </p>
       </form>
     );

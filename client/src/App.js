@@ -15,8 +15,8 @@ function App() {
           <div className="auth-inner">
             <Routes>
               <Route exact path="/" element={<Login />} />
-              <Route path="/sign-in" element={<Login />} />
-              <Route path="/sign-up" element={<SignUp />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<SignUp />} />
               <Route path="/userDetails" element={<UserDetails />} />
             </Routes>
           </div>

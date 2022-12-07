@@ -29,7 +29,7 @@ export default class UserDetails extends Component {
   render() {
     return (
       <div>
-        Name<h1>{this.state.userData.fname}</h1>
+        Name<h1>{this.state.userData.name}</h1>
         Email <h1>{this.state.userData.email}</h1>
       </div>
     );
