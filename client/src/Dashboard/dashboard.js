@@ -35,19 +35,24 @@ export default class Dashboard extends Component {
   }
 
   // Get existing projects
-  componentDidMount() {
+  componentWillMount() {
     fetch("http://localhost:8080/get-dashboard", {
       method: "GET",
     })
       .then((res) => res.json())
       .then((data) => {
+        // console.log(data);
         data.map((item) => {
           const projectUL = document.getElementById("project");
           const projectLI = document.createElement("li");
           projectLI.innerText = item.name;
-          console.log(projectLI);
+          //   console.log(projectLI);
+          projectUL.appendChild(projectLI);
+
+          projectLI.addEventListener("click", (projectLI) => {
+            window.location.href = "/project";
+          });
         });
-        projectUL.appendChild(projectLI);
       });
   }
   render() {

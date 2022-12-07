@@ -79,7 +79,7 @@ app.post("/create-dashboard", async (req, res) => {
   //   console.log("dashboard page");
   const { name } = req.body;
   try {
-    await Dashboard.create({
+    await Dashboard.createCollection({
       name,
     });
     res.send({ status: "ok" });
