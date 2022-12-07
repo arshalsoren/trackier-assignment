@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { useEffect } from "react";
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -35,28 +36,24 @@ export default class Dashboard extends Component {
 
   // Get existing projects
   componentDidMount() {
-    window.onload = () => {
-      fetch("http://localhost:8080/get-dashboard", {
-        method: "GET",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("123", data);
-
-          //   const projectUL = document.getElementById("project");
-          //   const projectLI = document.createElement("li");
-          //   projectLI.innerText = data;
-          //   projectUL.appendChild(projectLI);
+    fetch("http://localhost:8080/get-dashboard", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        data.map((item) => {
+          const projectUL = document.getElementById("project");
+          const projectLI = document.createElement("li");
+          projectLI.innerText = item.name;
+          console.log(projectLI);
         });
-    };
+        projectUL.appendChild(projectLI);
+      });
   }
   render() {
     return (
       <div>
         <h1> Projects Dashboard </h1>
-        <div id="project">
-          <ul></ul>
-        </div>
         <form onSubmit={this.handleNewProject}>
           <div className="mb-3">
             <label>Create New Project</label>
@@ -73,6 +70,11 @@ export default class Dashboard extends Component {
             </button>
           </div>
         </form>
+        <br />
+        <div id="project">
+          <h3>List of Projects</h3>
+          <ul></ul>
+        </div>
       </div>
     );
   }
